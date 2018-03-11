@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+// import { ImageUploadFormComponent } from './image-upload-form/image-upload-form.component';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  title = 'Image Gallery';
+  showForm = false;
+
+  popUpImageUploadForm(){
+  // alert("heloo");
+  this.showForm = true;
+
+  }
+
 }
