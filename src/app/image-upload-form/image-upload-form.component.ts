@@ -7,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ImageUploadFormComponent implements OnInit {
 
-  constructor() { }
+  constructor(){ }
 
   ngOnInit() {
   }
-
+  sbumitted = false;
+onSubmit() {
+alert("helloo");
+  // this.submitted = true;
+ }
 }
