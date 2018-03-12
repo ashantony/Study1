@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule }   from '@angular/forms';
-// import { Ng4FilesModule } from './ng4-files';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -17,7 +17,7 @@ import { ImageUploadFormComponent } from './image-upload-form/image-upload-form.
   imports: [
     BrowserModule,
     FormsModule,
-    // Ng4FilesModule
+      HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
