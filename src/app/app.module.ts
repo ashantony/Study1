@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { ImageUploadFormComponent } from './image-upload-form/image-upload-form.component';
+import { ImguploadserviceService } from 'app/imguploadservice.service';
 
 
 @NgModule({
@@ -19,7 +20,7 @@ import { ImageUploadFormComponent } from './image-upload-form/image-upload-form.
     FormsModule,
       HttpClientModule
   ],
-  providers: [],
+  providers: [ImguploadserviceService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
