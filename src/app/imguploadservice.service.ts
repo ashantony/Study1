@@ -18,17 +18,12 @@ export class ImguploadserviceService {
 
   uploadImage(data){
     let header = new HttpHeaders()
-                        .set('Content-Type', 'application/json');  // For Example - Uploading I don't know, normal API request
-                        // .set('something', other thing) // if you have more than one headers you can chain  in like this, beware the semi colon.
-                        // last set will have the semicolon
-                        // One thing HttpHeaders are immutable ie, you cannot change 'header' once created
-                        // You cannot modify the 'header' object... purinchitha?
-
+                        .set('Content-Type', 'application/json');
   return this.httpClient.post(this.api + 'imageUpload',data? data: null,
                 {
                   headers: header,
-                  withCredentials: true ,// this is useful when you require cookie for authentication
-                  responseType: 'json' // your expected response type
+                  withCredentials: true ,
+                  responseType: 'json' 
                 });
   }
 
