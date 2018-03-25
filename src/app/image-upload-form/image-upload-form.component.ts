@@ -25,11 +25,11 @@ onSubmit() {
     alert("helloo");
     const fd = new FormData;
     fd.append('image', this.selctedFile, this.selctedFile.name);
-    this.httpservice.uploadImage().subscribe(
+    this.httpservice.uploadImage(fd);
+    .subscribe(
     (response) => {
       console.log(response);
-    }
-    );
+    });
 
   // this.submitted = true;
  }
