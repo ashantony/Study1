@@ -13,18 +13,19 @@ export class ImguploadserviceService {
   //   })
   // };
 
-  api = 'http://demo8205703.mockable.io/';
+  api = 'https://m9bxpvlij9.execute-api.ap-south-1.amazonaws.com/api';
   constructor(private httpClient: HttpClient) { }
 
   uploadImage(data){
-    let header = new HttpHeaders()
+    let header = new HttpHeaders({})
                         .set('Content-Type', 'application/json');
-  return this.httpClient.post(this.api + 'imageUpload',data? data: null,
+  return this.httpClient.post(this.api, data? data : null,
                 {
                   headers: header,
                   withCredentials: true ,
-                  responseType: 'json' 
-                });
+                  responseType: 'json'
+                }
+              );
   }
 
 
