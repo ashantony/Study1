@@ -24,27 +24,9 @@ export class ImageUploadFormComponent implements OnInit {
 
   onFileSelect(event) {
     this.selctedFile = <File>event.target.files[0];
-    // ....
-    let reader = new FileReader();
-// if(event.target.files && event.target.files.length > 0) {
-// // let file = event.target.files[0];
-// this.selctedFile = <File>event.target.files[0];
-// reader.readAsDataURL(this.selctedFile);
-// reader.onload = () => {
-// this.imgForm.get('image').setValue({
-// filename: this.selctedFile.name,
-// filetype: this.selctedFile.type,
-// value: reader.result.split(',')[1]
-// })
-// };
-// }
-
-
-// var files = evt.target.files;
-//       var file = files[0];
 
     if (event.target.files && this.selctedFile) {
-      reader = new FileReader();
+      let reader = new FileReader();
 
       reader.onload = this._handleReaderLoaded.bind(this);
 
