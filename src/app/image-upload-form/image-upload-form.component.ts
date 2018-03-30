@@ -13,7 +13,7 @@ export class ImageUploadFormComponent implements OnInit {
   public caption: string;
   public image: any;
   result = [];
-  selctedFile: File = null;
+  selectedFile: File = null;
 
   // imgForm: ngForm;
   constructor(private httpservice: ImguploadserviceService) {
@@ -23,14 +23,14 @@ export class ImageUploadFormComponent implements OnInit {
   }
 
   onFileSelect(event) {
-    this.selctedFile = <File>event.target.files[0];
+    this.selectedFile = <File>event.target.files[0];
 
-    if (event.target.files && this.selctedFile) {
-      let reader = new FileReader();
+    if (event.target.files && this.selectedFile) {
+      const reader = new FileReader();
 
       reader.onload = this._handleReaderLoaded.bind(this);
 
-      reader.readAsBinaryString(this.selctedFile);
+      reader.readAsBinaryString(this.selectedFile);
     }
 
     // ................
@@ -38,19 +38,18 @@ export class ImageUploadFormComponent implements OnInit {
 
   // ..........
   _handleReaderLoaded(readerEvt) {
-    var binaryString = readerEvt.target.result;
+    const binaryString = readerEvt.target.result;
     this.base64textString = btoa(binaryString);
   }
 
 
   // ...........
-  sbumitted = false;
 
-  onSubmit() {
+  onSubmit(e) {
     // debugger;
     const imageData = this.base64textString;
     //
-    // fd.append('image', this.selctedFile, this.selctedFile.name);
+    // fd.append('image', this.selectedFile, this.selectedFile.name);
     const payload = {
       'data': imageData,
       'format': 'jpg',
