@@ -1,6 +1,5 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { HttpHeaders } from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 
 @Injectable()
 export class ImguploadserviceService {
@@ -13,21 +12,22 @@ export class ImguploadserviceService {
   //   })
   // };
 
-  api = 'https://m9bxpvlij9.execute-api.ap-south-1.amazonaws.com/api';
-  constructor(private httpClient: HttpClient) { }
+  api = 'https://m9bxpvlij9.execute-api.ap-south-1.amazonaws.com/api/';
 
-  uploadImage(data){
-    let header = new HttpHeaders({})
-                        .set('Content-Type', 'application/json');
-  return this.httpClient.post(this.api, data? data : null,
-                {
-                  headers: header,
-                  withCredentials: true ,
-                  responseType: 'json'
-                }
-              );
+  constructor(private httpClient: HttpClient) {
   }
 
+  uploadImage(data) {
+    const header = new HttpHeaders({})
+      .set('Content-Type', 'application/json');
+    return this.httpClient.post(this.api, data ? data : null,
+      {
+        headers: header,
+        // withCredentials: true,
+        responseType: 'json'
+      }
+    )
+  }
 
 
 }
