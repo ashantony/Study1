@@ -9,7 +9,7 @@ import {ImguploadserviceService} from 'app/imguploadservice.service';
   styleUrls: ['./image-upload-form.component.css']
 })
 export class ImageUploadFormComponent implements OnInit {
-  public base64textString: String = '';
+  public base64textString: string = '';
   public caption: string;
   public image: any;
   result = [];
@@ -32,7 +32,6 @@ export class ImageUploadFormComponent implements OnInit {
 
       reader.readAsBinaryString(this.selectedFile);
     }
-
     // ................
   }
 
@@ -41,13 +40,12 @@ export class ImageUploadFormComponent implements OnInit {
     const binaryString = readerEvt.target.result;
     this.base64textString = btoa(binaryString);
   }
-
-
   // ...........
 
   onSubmit(e) {
     // debugger;
     const imageData = this.base64textString;
+    console.log(imageData);
     //
     // fd.append('image', this.selectedFile, this.selectedFile.name);
     const payload = {
@@ -57,8 +55,15 @@ export class ImageUploadFormComponent implements OnInit {
       'height': 500
     };
     this.httpservice.uploadImage(payload)
-      .subscribe((res) => console.log(res));
-
-    // this.submitted = true;
+      .subscribe((response: any) => {
+        this.result = response;
+        console.log(this.result, "this.urlthis.url>>>>");
+        // const newImgData = this.result.url;
+      });
+        // this.submitted = true;
   }
+
+  // clearFile(this.submitted = true){
+  //   alert("heloo");
+  // }
 }
